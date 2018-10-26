@@ -1,0 +1,15 @@
+{
+    "extraBabelPlugins": [
+      ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }]
+    ],
+    "proxy": {
+      "/api": {
+        "target": "http://dev.skyreq.com:90",
+        "changeOrigin": true
+      },
+      "/file": {
+        "target": "http://dev.skyreq.com:90",
+        "changeOrigin": true
+      }
+    }
+}

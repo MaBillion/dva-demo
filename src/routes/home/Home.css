@@ -1,0 +1,60 @@
+.homeContainer {
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.homeContainer nav {
+  height: 40px;
+  line-height: 40px;
+  background: #5fbbff;
+  width: 100%;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.homeContainer nav span:nth-of-type(2) {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.ant-carousel .slick-slide {
+  text-align: center;
+  height: 160px;
+  line-height: 160px;
+  background: #364d79;
+  overflow: hidden;
+}
+
+.ant-carousel .slick-slide h3 {
+  color: #fff;
+  text-align: center;
+}
+
+.CarouselOne,
+.CarouselTwo,
+.CarouselThree,
+.CarouselFour {
+  height: 160px;
+  text-align: center;
+  line-height: 160px;
+}
+
+.CarouselOne {
+  background: #ff997f;
+}
+
+.CarouselTwo {
+  background: #71ff7a;
+}
+
+.CarouselThree {
+  background: #e486ff;
+}
+
+.CarouselFour {
+  background: #76acff;
+}
