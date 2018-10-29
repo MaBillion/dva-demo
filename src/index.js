@@ -1,5 +1,7 @@
 import dva from 'dva';
 import './index.css';
+import router from './router'
+import index from './models/index'
 
 // 1. Initialize
 const app = dva();
@@ -8,10 +10,11 @@ const app = dva();
 // app.use({});
 
 // 3. Model
-app.model(require('./models/Home').default);
+app.model(index.Home);
+app.model(index.Login);
 
 // 4. Router
-app.router(require('./router').default);
+app.router(router);
 
 // 5. Start
 app.start('#root');

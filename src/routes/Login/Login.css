@@ -1,0 +1,17 @@
+.LoginTitle {
+  text-align: center;
+  font-size: 20px;
+  color: #3ea8ff;
+  margin: 40px 0;
+}
+
+.mainContent {
+  margin: 0 auto;
+  width: 80%;
+  height: 220px;
+  border: 1px solid #cccccc;
+  border-radius: 10px;
+  padding: 40px 10px;
+  box-sizing: border-box;
+  background: #ffffff;
+}

@@ -1,8 +1,7 @@
 import request from '../utils/api'
 
-export function fetchInitState (payload) {
-    return request('/api/user/login', {
-      method: 'POST',
-      body:  payload
+export function fetchInitState () {
+    return request('/api/req/init', {
+      method: 'POST'
     })
 }

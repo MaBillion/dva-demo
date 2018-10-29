@@ -1,34 +1,53 @@
 import React from 'react';
 import { connect } from 'dva';
 import styles from './Home.css';
-import { Carousel } from 'antd';
+import { Carousel, WingBlank, NavBar } from 'antd-mobile';
 
 class Home extends React.Component {
+  constructor () {
+    super()
+    this.state = {
+      data: ['AiyWuByWklrrUDlFignR', 'TekJlZRVCjLFexlOCuWn', 'IJOtIlfsYdTyaDTRVrLI'],
+    }
+  }
+
   render() {
     return (
       <div className={styles.homeContainer}>
-        <nav>
-          <span>消息</span>
-          <span>酷飞</span>
-          <span>中心</span>
-        </nav>
+        <NavBar
+          mode="dark"
+          leftContent="消息"
+          rightContent='中心'
+        >酷飞</NavBar>
         <div>
-          <Carousel autoplay>
-            <div className={styles.CarouselOne}><h3>1</h3></div>
-            <div className={styles.CarouselTwo}><h3>2</h3></div>
-            <div className={styles.CarouselThree}><h3>3</h3></div>
-            <div className={styles.CarouselFour}><h3>4</h3></div>
-          </Carousel>
+          <WingBlank style={{margin: '0'}}>
+            <Carousel
+              autoplay={true}
+              infinite
+              style={{margin: '0'}}
+            >
+              {this.state.data.map(val => (
+                <img
+                  src={`https://zos.alipayobjects.com/rmsportal/${val}.png`}
+                  alt=""
+                  key={val}
+                  style={{ width: '100%', verticalAlign: 'top', margin: '0'}}
+                  onLoad={() => {
+                    // fire window resize event to change height
+                    window.dispatchEvent(new Event('resize'));
+                    this.setState({ imgHeight: 'auto' });
+                  }}
+                />
+              ))}
+            </Carousel>
+          </WingBlank>
         </div>
       </div>
     )
   }
 
   componentDidMount() {
-    this.props.dispatch({type: 'Home/fetchInitState', payload: {
-      account: 'zcom1',    // 账户名
-      pwd: 'abc123',        // 密码
-    }})
+    this.props.dispatch({type: 'Home/fetchInitState'})
   }
 }
 

@@ -1,12 +1,13 @@
 import fetch from 'dva/fetch';
-import { message } from 'antd'
+import { Toast } from 'antd-mobile';
+import history from './history'
 
 function checkStatus(response) {
   console.log(response)
   if (response.status >= 200 && response.status < 300) {
     return response;
   } else {
-    message.info('服务器错误')
+    Toast.info('服务器错误')
   }
 }
 
@@ -50,11 +51,12 @@ async function request(url, options) {
     return data
   } else {
     if (err_code === -2) {
-      message.info('请先登录')
+      Toast.info('请先登录')
+      history.push('/Login')
     }
     if (err_code in defaultOptions.errCodes) {
       let msg = defaultOptions.errCodes[err_code];
-      message.info(msg)
+      Toast.info(msg)
       return false
     }
   }

@@ -6,20 +6,15 @@ export default {
 
   state: {},
 
-  subscriptions: {
-      setup({ dispatch, history }) {  // eslint-disable-line
+  effects: {
+    *fetchInitState({payload}, { call, put }) {  // eslint-disable-line
+     const data =  yield call(homeServices.fetchInitState)
+      yield put({ type: 'reqInitState' });
     }
   },
 
-  effects: {
-    *fetchInitState({ payload }, { call, put }) {  // eslint-disable-line
-     const data =  yield call(homeServices.fetchInitState, payload)
-      yield put({ type: 'reqInitState', payload: data });
-    },
-  },
-
   reducers: {
-    reqInitState(state, action) {
+    reqInitState(state) {
       return { ...state };
     }
   }
